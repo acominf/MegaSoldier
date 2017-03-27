@@ -31,7 +31,7 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 * caracteristica3
 
 ### Diagrama de clases
-![Diagrama de clases](url-del-diagrama.png)
+![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/Diagrama.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:
