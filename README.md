@@ -1,27 +1,48 @@
-### Objetivo
-El objetivo del proyecto es ...
+### Objetivo del juego/aplicación
+El objetivo del juego/aplicación es ...
 
-### Descripción
-La descripción del proyecto es ...
+### Descripción del juego/aplicación
+La descripción del juego/aplicación es ...
+
+### Clases principales y sus características
+1. Clase 1
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+2. Clase 2
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+3. Clase 3
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+4. Clase 4
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+5. Clase 5
+* caracteristica1
+* caracteristica2
+* caracteristica3
+
+### Diagrama de clases
+![Diagrama de clases](url-del-diagrama.png)
 
 ### Autor(es)
 El autor(es) del proyecto son:
-- Nombre completo del autor 1
-- Nombre completo del autor 2
+- Nombre completo del autor 1 (@nombreUsuarioGitHub)
+- Nombre completo del autor 2 (@nombreUsuarioGitHub)
 
-### Historias de usuario
-Las historias de usuario son:
+### Materia(s)
+- Programación Orientada a Objetos
 
-1. _Como_ usuario _quiero_ objetivo _para_ razón.
-2. _Como_ usuario _quiero_ objetivo _para_ razón.
-3. _Como_ usuario _quiero_ objetivo _para_ razón.
-4. _Como_ usuario _quiero_ objetivo _para_ razón.
-5. _Como_ usuario _quiero_ objetivo _para_ razón.
-6. _Como_ usuario _quiero_ objetivo _para_ razón.
-7. _Como_ usuario _quiero_ objetivo _para_ razón.
-8. _Como_ usuario _quiero_ objetivo _para_ razón.
-9. _Como_ usuario _quiero_ objetivo _para_ razón.
-10. _Como_ usuario _quiero_ objetivo _para_ razón.
+### Semestre
+- 2016-2017/II
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
