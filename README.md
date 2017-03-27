@@ -1,8 +1,8 @@
 ### Objetivo del juego/aplicación
-El objetivo del juego/aplicación es ...
+Desarrollar la logica en el jugador para que pueda resolver las situaciones que se presentan en el transcurso del juego.
 
 ### Descripción del juego/aplicación
-La descripción del juego/aplicación es ...
+Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mundo que tiene ciertos obstaculos como enemigos que haran todo lo que puedan por detener a nuestro heroe a su vez tendra que buscar objetos que le ayudaran a completar su aventura.
 
 ### Clases principales y sus características
 1. Clase 1
@@ -35,8 +35,8 @@ La descripción del juego/aplicación es ...
 
 ### Autor(es)
 El autor(es) del proyecto son:
-- Nombre completo del autor 1 (@nombreUsuarioGitHub)
-- Nombre completo del autor 2 (@nombreUsuarioGitHub)
+- Karla Stephania Rosas Del Valle (k2rosvall)
+- Jonathan Israel Baro del Leon (jonathan.baro21)
 
 ### Materia(s)
 - Programación Orientada a Objetos
