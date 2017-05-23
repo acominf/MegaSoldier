@@ -3,9 +3,11 @@ package com.mygdx.game.Sprites;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -40,7 +42,7 @@ public class Player extends Sprite {
         runnningRight = true;
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 1; i < 3; i++)
+        for(int i = 0; i < 3; i++)
             frames.add(new TextureRegion(getTexture(), i * 192, 0, 192, 164 ));
         playerRun = new Animation(0.1f, frames);
         frames.clear();
@@ -119,9 +121,18 @@ public class Player extends Sprite {
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
         shape.setRadius(15/MegaSoldier.PPM);
+        fdef.filter.categoryBits = MegaSoldier.PLAYER_BIT;
+        fdef.filter.maskBits = MegaSoldier.DEFAULT_BIT | MegaSoldier.OBJETO_BIT | MegaSoldier.BRICK_BIT;
 
         fdef.shape = shape;
         b2body.createFixture((fdef));
+
+        EdgeShape head = new EdgeShape();
+        head.set(new Vector2(-2 / MegaSoldier.PPM, 16 / MegaSoldier.PPM), new Vector2(2 / MegaSoldier.PPM, 16 / MegaSoldier.PPM));
+        fdef.shape = head;
+        fdef.isSensor = true;
+
+        b2body.createFixture(fdef).setUserData("head");
 
     }
 

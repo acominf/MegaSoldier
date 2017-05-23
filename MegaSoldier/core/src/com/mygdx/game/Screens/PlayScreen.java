@@ -28,6 +28,7 @@ import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Sprites.Player;
 import com.mygdx.game.Tools.B2WorldCreator;
+import com.mygdx.game.Tools.WorldContactListener;
 
 /**
  * Created by Karla Rosas on 17/05/2017.
@@ -79,6 +80,8 @@ public class PlayScreen implements Screen{
 
         //Inicializa Jugador
         player = new Player(world, this);
+
+        world.setContactListener(new WorldContactListener());
 
     }
 

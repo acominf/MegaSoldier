@@ -5,6 +5,8 @@ import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
@@ -20,6 +22,8 @@ public abstract class InteractiveTiledObject {
     protected TiledMapTile tile;
     protected Rectangle bounds;
     protected Body body;
+
+    protected Fixture fixture;
 
     public InteractiveTiledObject(World world, TiledMap map, Rectangle bounds)
     {
@@ -38,6 +42,14 @@ public abstract class InteractiveTiledObject {
 
         shape.setAsBox((bounds.getWidth()/2) / MegaSoldier.PPM, (bounds.getHeight()/2)/MegaSoldier.PPM);
         fdef.shape = shape;
-        body.createFixture(fdef);
+        fixture = body.createFixture(fdef);
+    }
+
+    public abstract void onHeadHit();
+    public void setCategoryFilter(short filterBit)
+    {
+        Filter filter = new Filter();
+        filter.categoryBits = filterBit;
+        fixture.setFilterData(filter);
     }
 }
