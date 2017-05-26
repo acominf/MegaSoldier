@@ -10,8 +10,6 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.utils.ArraySelection;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Screens.PlayScreen;
@@ -32,27 +30,27 @@ public class Player extends Sprite {
     private float stateTimer;
     private boolean runnningRight;
 
-    public Player(World world, PlayScreen screen)
+    public Player(PlayScreen screen)
     {
-        super(screen.getAtlas().findRegion("sp4"));
-        this.world = world;
+        super(screen.getAtlas().findRegion("player"));
+        this.world = screen.getWorld();
         currentState = State.STANNDING;
         previousState = State.STANNDING;
         stateTimer = 0;
         runnningRight = true;
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 0; i < 3; i++)
+        for(int i = 1; i < 4; i++)
             frames.add(new TextureRegion(getTexture(), i * 192, 0, 192, 164 ));
         playerRun = new Animation(0.1f, frames);
         frames.clear();
-        for(int i = 2; i < 3; i++)
-            frames.add(new TextureRegion(getTexture(), i * 192, 0, 192, 164 ));
+        for(int i = 1; i < 2; i++)
+            frames.add(new TextureRegion(getTexture(), i * 1, 0, 192, 164 ));
         playerJump = new Animation(0.1f, frames);
         frames.clear();
 
 
-        playerStand = new TextureRegion(getTexture(), 389, 333, 192, 164);
+        playerStand = new TextureRegion(getTexture(), 580, 0, 192, 164);
         definePlayer();
         setBounds(0, 0, 33 / MegaSoldier.PPM, 33 / MegaSoldier.PPM);
         setRegion(playerStand);
@@ -122,7 +120,12 @@ public class Player extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(15/MegaSoldier.PPM);
         fdef.filter.categoryBits = MegaSoldier.PLAYER_BIT;
-        fdef.filter.maskBits = MegaSoldier.DEFAULT_BIT | MegaSoldier.OBJETO_BIT | MegaSoldier.BRICK_BIT;
+        fdef.filter.maskBits = MegaSoldier.GROUND_BIT |
+                               MegaSoldier.OBJETO_BIT |
+                               MegaSoldier.BRICK_BIT |
+                               MegaSoldier.ENEMY_BIT |
+                               MegaSoldier.OBJECT_BIT |
+                               MegaSoldier.ENEMY_HEAD_BIT;
 
         fdef.shape = shape;
         b2body.createFixture((fdef));

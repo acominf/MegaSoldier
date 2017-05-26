@@ -3,6 +3,7 @@ package com.mygdx.game.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -27,6 +29,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Sprites.Player;
+import com.mygdx.game.Sprites.SoldadoMalo;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
 
@@ -53,6 +56,9 @@ public class PlayScreen implements Screen{
     private Box2DDebugRenderer b2dr;
     //Juagador
     private Player player;
+    private SoldadoMalo soldadoMalo;
+
+    private Music music;
 
 
     public PlayScreen(MegaSoldier game)
@@ -76,12 +82,18 @@ public class PlayScreen implements Screen{
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(world, map);
+        new B2WorldCreator(this);
 
         //Inicializa Jugador
-        player = new Player(world, this);
+        player = new Player(this);
 
         world.setContactListener(new WorldContactListener());
+
+        music = MegaSoldier.manager.get("Audio/Music/soundsGame.wav", Music.class);
+        //music.setLooping(true);
+        //music.play();
+
+        soldadoMalo = new SoldadoMalo(this, .70f, .32f);
 
     }
 
@@ -107,7 +119,10 @@ public class PlayScreen implements Screen{
         handleInput(dt);
         world.step(1/60f, 6, 2);
         player.update(dt);
-        gamecam.position.x = player.b2body.getPosition().x;
+        soldadoMalo.update(dt);
+        hud.update(dt);
+        gamecam.position.x = (player.b2body.getPosition().x) + 1;
+        gamecam.position.y = (player.b2body.getPosition().y) + 0.7f;
 
         gamecam.update();
         //Solo renderiza lo que la camara alcanza a ver
@@ -131,6 +146,7 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
+        soldadoMalo.draw(game.batch);
         game.batch.end();
 
         //Set our batch to now draw what the Hud camera sees.
@@ -144,6 +160,16 @@ public class PlayScreen implements Screen{
 
         gamePort.update(width, height);
 
+    }
+
+    public TiledMap getMap()
+    {
+        return map;
+    }
+
+    public World getWorld()
+    {
+        return world;
     }
 
     @Override

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="2017.05.16" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="39">
+ <tileset firstgid="1" source="tileset_gutter.tsx"/>
+ <layer name="background" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt0MEJAEAIBLEFC7fW6+TKUCSP/IfpShoAAAAAAAAAlnmZb7jKWwAAAGDCBzjFMXk=
+  </data>
+ </layer>
+ <layer name="graphics" width="240" height="13">
+  <data encoding="base64" compression="zlib">
+   eJzt2MEJhDAQQNERa7MuT1uglqINqMddVAQnmoX34F9VAkNMIgAAAAAAALijOwgAqFfffgfkKvFP/Du3ewH3lDrXns3nG7M8NBFjU/491OXKPvKv+0zG3VTG+jyxjtM6u/PaJ/KKSp6RXY3fJG0tVZKjhg==
+  </data>
+ </layer>
+ <objectgroup name="ground">
+  <object id="1" x="0" y="192" width="304" height="16"/>
+  <object id="2" x="320" y="192" width="256" height="16"/>
+  <object id="4" x="592" y="192" width="288" height="16"/>
+  <object id="6" x="880" y="192" width="288" height="16"/>
+  <object id="7" x="1184" y="192" width="448" height="16"/>
+  <object id="10" x="1616" y="192" width="2192" height="16"/>
+ </objectgroup>
+ <objectgroup name="pipes">
+  <object id="12" x="3808" y="160" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="objects">
+  <object id="16" x="832" y="129" width="15" height="14"/>
+  <object id="17" x="2221" y="129" width="19" height="14"/>
+ </objectgroup>
+ <objectgroup name="bricks">
+  <object id="18" x="2865" y="177" width="15" height="13"/>
+  <object id="20" x="2882" y="176" width="14" height="15"/>
+  <object id="21" x="2880" y="160" width="17" height="15"/>
+  <object id="22" x="2897" y="144" width="16" height="15"/>
+  <object id="25" x="2898" y="159" width="16" height="17"/>
+  <object id="26" x="2897" y="176" width="17" height="15"/>
+  <object id="27" x="2914" y="143" width="14" height="16"/>
+  <object id="28" x="2912" y="160" width="17" height="15"/>
+  <object id="29" x="2912" y="177" width="16" height="14"/>
+  <object id="30" x="2929" y="161" width="15" height="16"/>
+  <object id="31" x="2929" y="177" width="17" height="14"/>
+  <object id="32" x="2945" y="177" width="14" height="15"/>
+  <object id="33" x="3090" y="96" width="15" height="15"/>
+  <object id="34" x="3074" y="97" width="15" height="12"/>
+  <object id="35" x="3058" y="97" width="13" height="12"/>
+  <object id="36" x="3041" y="96" width="15" height="13"/>
+  <object id="37" x="3025" y="97" width="14" height="12"/>
+  <object id="38" x="3011" y="94" width="13" height="15"/>
+ </objectgroup>
+</map>

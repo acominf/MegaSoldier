@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.MegaSoldier;
+import com.mygdx.game.Screens.PlayScreen;
 import com.mygdx.game.Sprites.Brick;
 import com.mygdx.game.Sprites.Objeto;
 
@@ -19,8 +20,10 @@ import com.mygdx.game.Sprites.Objeto;
 
 public class B2WorldCreator {
 
-    public B2WorldCreator(World world, TiledMap map)
+    public B2WorldCreator(PlayScreen screen)
     {
+        World world = screen.getWorld();
+        TiledMap map = screen.getMap();
         //cambiar a cada clase
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
@@ -55,6 +58,7 @@ public class B2WorldCreator {
 
             shape.setAsBox((rec.getWidth()/2) / MegaSoldier.PPM, (rec.getHeight()/2)/MegaSoldier.PPM);
             fdef.shape = shape;
+            fdef.filter.categoryBits = MegaSoldier.OBJECT_BIT;
             body.createFixture(fdef);
 
         }
@@ -63,14 +67,14 @@ public class B2WorldCreator {
         {
             Rectangle rec = ((RectangleMapObject) object).getRectangle();
 
-            new Brick(world, map, rec);
+            new Brick(screen, rec);
         }
         //Objetos
         for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rec = ((RectangleMapObject) object).getRectangle();
 
-            new Objeto(world, map, rec);
+            new Objeto(screen, rec);
 
         }
     }
