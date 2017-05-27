@@ -8,6 +8,8 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.Screens.CreditScreen;
+import com.mygdx.game.Screens.MenuScreen;
 import com.mygdx.game.Screens.PlayScreen;
 
 public class MegaSoldier extends Game {
@@ -28,18 +30,35 @@ public class MegaSoldier extends Game {
 
 	public SpriteBatch batch;
 
+	public PlayScreen playScreen;
+	public MenuScreen menuScreen;
+	public CreditScreen creditScreen;
+
+
 	public static AssetManager manager;
 
-	@Override
+    public AssetManager getManager(){
+        return manager;
+    }
+
+
+    @Override
 	public void create() {
+
 		batch = new SpriteBatch();
 		manager = new AssetManager();
 		manager.load("Audio/Music/soundsGame.wav", Music.class);
 		manager.load("Audio/Music/breakblock.wav", Music.class);
 		manager.load("Audio/Music/bump.wav", Music.class);
+        manager.load("logo.png", Texture.class);
 		manager.finishLoading();
 
-		setScreen(new PlayScreen(this));
+		playScreen = new PlayScreen(this);
+		menuScreen = new MenuScreen(this);
+		creditScreen = new CreditScreen(this);
+
+		setScreen(menuScreen);
+
 	}
 
 	@Override
