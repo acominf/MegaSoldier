@@ -2,6 +2,7 @@ package com.mygdx.game.Sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -39,13 +40,14 @@ public class SoldadoMalo extends Enemy {
     public void update(float dt)
     {
         stateTime += dt;
-        if(!setToDestroy && !destroyed){
+        if(setToDestroy && !destroyed){
             world.destroyBody(b2body);
             destroyed = true;
             setRegion(new TextureRegion(screen.getAtlas().findRegion("enemies")), 768, 0, 192, 164 );
             stateTime = 0;
         }
         else if(!destroyed) {
+            b2body.setLinearVelocity(velocity);
             setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
             setRegion((TextureRegion) walkAnimation.getKeyFrame(stateTime, true));
         }
@@ -55,7 +57,7 @@ public class SoldadoMalo extends Enemy {
     @Override
     protected void defineEnemy() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(35 / MegaSoldier.PPM,40 /MegaSoldier.PPM);
+        bdef.position.set(getX(),getY());
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 
@@ -71,23 +73,29 @@ public class SoldadoMalo extends Enemy {
                                MegaSoldier.PLAYER_BIT;
 
         fdef.shape = shape;
-        b2body.createFixture((fdef));
+        b2body.createFixture(fdef).setUserData(this);
 
         //  Create the Head here:
         PolygonShape head = new PolygonShape();
         Vector2[] vertice = new Vector2[4];
-        vertice[0] = new Vector2(-13, 16).scl(1 / MegaSoldier.PPM);
-        vertice[1] = new Vector2(13, 16).scl(1 / MegaSoldier.PPM);
-        vertice[2] = new Vector2(-11, 11).scl(1 / MegaSoldier.PPM);
-        vertice[3] = new Vector2(11, 11).scl(1 / MegaSoldier.PPM);
+        vertice[0] = new Vector2(-3.5f, 17).scl(1 / MegaSoldier.PPM);
+        vertice[1] = new Vector2(3.5f, 17).scl(1 / MegaSoldier.PPM);
+        vertice[2] = new Vector2(-2, 13).scl(1 / MegaSoldier.PPM);
+        vertice[3] = new Vector2(2, 13).scl(1 / MegaSoldier.PPM);
         head.set(vertice);
 
         fdef.shape = head;
-        fdef.restitution = 0.5f;
+        fdef.restitution = 1.5f;
         fdef.filter.categoryBits = MegaSoldier.ENEMY_HEAD_BIT;
         b2body.createFixture(fdef).setUserData(this);
-
     }
+
+    public void draw(Batch batch)
+    {
+        if(!destroyed || stateTime < 1)
+            super.draw(batch);
+    }
+
 
     @Override
     public void hitOnHead() {

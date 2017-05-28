@@ -37,9 +37,29 @@ public class WorldContactListener implements ContactListener {
             case MegaSoldier.ENEMY_HEAD_BIT | MegaSoldier.PLAYER_BIT:
                 if (fixA.getFilterData().categoryBits == MegaSoldier.ENEMY_HEAD_BIT)
                     ((Enemy)fixA.getUserData()).hitOnHead();
-                else if (fixB.getFilterData().categoryBits == MegaSoldier.ENEMY_HEAD_BIT)
+                else
                     ((Enemy)fixB.getUserData()).hitOnHead();
                 break;
+            case MegaSoldier.ENEMY_BIT | MegaSoldier.BRICK_BIT:
+                if (fixA.getFilterData().categoryBits == MegaSoldier.ENEMY_BIT)
+                    ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                else
+                    ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
+            case MegaSoldier.ENEMY_BIT | MegaSoldier.GROUND_BIT:
+                if (fixA.getFilterData().categoryBits == MegaSoldier.ENEMY_BIT)
+                    ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                else
+                    ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
+            case MegaSoldier.PLAYER_BIT | MegaSoldier.ENEMY_BIT:
+                Gdx.app.log("Player", "Died");
+                break;
+            case MegaSoldier.ENEMY_BIT | MegaSoldier.ENEMY_BIT:
+                ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
+                ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
+                break;
+
         }
     }
 

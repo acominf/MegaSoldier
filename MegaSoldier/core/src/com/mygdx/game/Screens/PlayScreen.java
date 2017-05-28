@@ -28,6 +28,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Scenes.Hud;
+import com.mygdx.game.Sprites.Enemy;
 import com.mygdx.game.Sprites.Player;
 import com.mygdx.game.Sprites.SoldadoMalo;
 import com.mygdx.game.Tools.B2WorldCreator;
@@ -54,9 +55,9 @@ public class PlayScreen implements Screen{
     //Variables de Box2D
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
     //Juagador
     private Player player;
-    private SoldadoMalo soldadoMalo;
 
     private Music music;
 
@@ -82,7 +83,7 @@ public class PlayScreen implements Screen{
         world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        new B2WorldCreator(this);
+        creator = new B2WorldCreator(this);
 
         //Inicializa Jugador
         player = new Player(this);
@@ -93,7 +94,6 @@ public class PlayScreen implements Screen{
         //music.setLooping(true);
         //music.play();
 
-        soldadoMalo = new SoldadoMalo(this, .70f, .32f);
 
     }
 
@@ -119,7 +119,8 @@ public class PlayScreen implements Screen{
         handleInput(dt);
         world.step(1/60f, 6, 2);
         player.update(dt);
-        soldadoMalo.update(dt);
+        for (Enemy enemy : creator.getEnemigos())
+            enemy.update(dt);
         hud.update(dt);
         gamecam.position.x = (player.b2body.getPosition().x) + 1;
         gamecam.position.y = (player.b2body.getPosition().y) + 0.7f;
@@ -146,7 +147,8 @@ public class PlayScreen implements Screen{
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         player.draw(game.batch);
-        soldadoMalo.draw(game.batch);
+        for (Enemy enemy : creator.getEnemigos())
+            enemy.draw(game.batch);
         game.batch.end();
 
         //Set our batch to now draw what the Hud camera sees.
