@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.MegaSoldier;
 
@@ -16,48 +17,34 @@ import com.mygdx.game.MegaSoldier;
  * Created by Karla Rosas on 26/05/2017.
  */
 
-public class MenuScreen extends BaseScreen {
+public class HelpScreen extends BaseScreen {
 
-
+    private TextButton back;
     private Stage stage;
-    protected Skin skin;
     private Image logo;
-    private TextButton play;
-    private TextButton creditos;
+    private Skin skin;
 
 
-    public MenuScreen(final MegaSoldier game) {
+    public HelpScreen(final MegaSoldier game)
+    {
         super(game);
         stage = new Stage(new FitViewport(640, 360));
         skin = new Skin(Gdx.files.internal(("skin/star-soldier-ui.json")));
-        logo = new Image(game.getManager().get("logo.png", Texture.class));
-        play = new TextButton("Play", skin);
-        creditos = new TextButton("Creditos", skin);
+        logo = new Image(game.getManager().get("ayuda.png", Texture.class));
+        back = new TextButton("->", skin);
 
-        play.addCaptureListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                game.setScreen(game.helpScreen);
-
-            }
-        });
-
-        creditos.addCaptureListener(new ChangeListener() {
+        back.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(game.creditScreen);
+                game.setScreen(game.playScreen);
             }
         });
-
-        logo.setPosition(320 - logo.getWidth()/2, 220 - logo.getHeight()/2);
-        play.setSize(200, 100);
-        play.setPosition(100, 50);
-        creditos.setSize(200, 100);
-        creditos.setPosition(400, 50);
-
-        stage.addActor(play);
+        logo.scaleBy(-.4f);
+        logo.setPosition(420 - logo.getWidth()/2, 280 - logo.getHeight()/2);
+        back.setSize(100, 70);
+        back.setPosition(520, 30);
         stage.addActor(logo);
-        stage.addActor(creditos);
+        stage.addActor(back);
 
     }
     @Override
@@ -84,5 +71,4 @@ public class MenuScreen extends BaseScreen {
         stage.draw();
     }
 }
-
 

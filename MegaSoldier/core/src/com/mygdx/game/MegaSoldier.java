@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.Screens.CreditScreen;
 import com.mygdx.game.Screens.GameOverScreen;
+import com.mygdx.game.Screens.HelpScreen;
 import com.mygdx.game.Screens.MenuScreen;
 import com.mygdx.game.Screens.PlayScreen;
 
@@ -35,6 +36,7 @@ public class MegaSoldier extends Game {
 	public MenuScreen menuScreen;
 	public CreditScreen creditScreen;
 	public GameOverScreen gameoverScreen;
+	public HelpScreen helpScreen;
 
 
 	public static AssetManager manager;
@@ -56,12 +58,14 @@ public class MegaSoldier extends Game {
         manager.load("logo.png", Texture.class);
 		manager.load("creditos.png", Texture.class);
 		manager.load("gameover.png", Texture.class);
+		manager.load("ayuda.png", Texture.class);
 		manager.finishLoading();
 
 		playScreen = new PlayScreen(this);
 		menuScreen = new MenuScreen(this);
 		creditScreen = new CreditScreen(this);
 		gameoverScreen = new GameOverScreen(this);
+		helpScreen = new HelpScreen(this);
 
 		setScreen(menuScreen);
 
