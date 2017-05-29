@@ -9,31 +9,39 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.MegaSoldier;
 
+import static com.badlogic.gdx.scenes.scene2d.ui.Table.Debug.actor;
+
 /**
- * Created by Karla Rosas on 26/05/2017.
+ * Created by Karla Rosas on 28/05/2017.
  */
 
-public class CreditScreen extends BaseScreen {
+public class GameOverScreen extends BaseScreen {
 
-    private TextButton back;
+    private TextButton retry;
+    private TextButton menu;
     private Stage stage;
     private Image logo;
     private Skin skin;
 
-
-    public CreditScreen(final MegaSoldier game)
-    {
+    public GameOverScreen(final MegaSoldier game) {
         super(game);
         stage = new Stage(new FitViewport(640, 360));
         skin = new Skin(Gdx.files.internal(("skin/star-soldier-ui.json")));
-        logo = new Image(game.getManager().get("creditos.png", Texture.class));
-        back = new TextButton("<-", skin);
+        logo = new Image(game.getManager().get("gameover.png",Texture.class));
+        retry = new TextButton("Retry", skin);
+        menu = new TextButton("Menu", skin);
 
-        back.addCaptureListener(new ChangeListener() {
+
+        retry.addCaptureListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
+                game.setScreen(game.playScreen);
+            }
+        });
+        menu.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 game.setScreen(game.menuScreen);
@@ -41,14 +49,18 @@ public class CreditScreen extends BaseScreen {
         });
         logo.scaleBy(-.4f);
         logo.setPosition(420 - logo.getWidth()/2, 310 - logo.getHeight()/2);
-        back.setSize(100, 70);
-        back.setPosition(520, 30);
+        retry.setSize(200, 100);
+        retry.setPosition(100, 50);
+        menu.setSize(200, 100);
+        menu.setPosition(400, 50);
         stage.addActor(logo);
-        stage.addActor(back);
-
+        stage.addActor(retry);
+        stage.addActor(menu);
     }
+
     @Override
     public void show() {
+
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -70,5 +82,6 @@ public class CreditScreen extends BaseScreen {
         stage.act();
         stage.draw();
     }
-}
 
+
+}

@@ -1,5 +1,6 @@
 package com.mygdx.game.Tools;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
@@ -15,6 +16,7 @@ import com.mygdx.game.Sprites.InteractiveTiledObject;
  */
 
 public class WorldContactListener implements ContactListener {
+
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA =contact.getFixtureA();
