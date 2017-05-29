@@ -66,14 +66,14 @@ public class B2WorldCreator {
 
         }
         //Ladrillos
-        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rec = ((RectangleMapObject) object).getRectangle();
 
             new Brick(screen, rec);
         }
         //Objetos
-        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rec = ((RectangleMapObject) object).getRectangle();
 
@@ -83,7 +83,7 @@ public class B2WorldCreator {
 
         // Enemigos
         enemigos = new Array<SoldadoMalo>();
-        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class))
+        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class))
         {
             Rectangle rec = ((RectangleMapObject) object).getRectangle();
 

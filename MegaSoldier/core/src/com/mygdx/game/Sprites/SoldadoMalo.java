@@ -1,5 +1,6 @@
 package com.mygdx.game.Sprites;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MegaSoldier;
+import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Screens.PlayScreen;
 
 /**
@@ -100,5 +102,7 @@ public class SoldadoMalo extends Enemy {
     @Override
     public void hitOnHead() {
         setToDestroy = true;
+        Hud.addScore(500);
+        MegaSoldier.manager.get("Audio/Music/enemyDied.wav", Music.class).play();
     }
 }

@@ -50,6 +50,7 @@ public class MegaSoldier extends Game {
 		manager.load("Audio/Music/soundsGame.wav", Music.class);
 		manager.load("Audio/Music/breakblock.wav", Music.class);
 		manager.load("Audio/Music/bump.wav", Music.class);
+		manager.load("Audio/Music/enemyDied.wav", Music.class);
         manager.load("logo.png", Texture.class);
 		manager.finishLoading();
 

@@ -91,8 +91,8 @@ public class PlayScreen implements Screen{
         world.setContactListener(new WorldContactListener());
 
         music = MegaSoldier.manager.get("Audio/Music/soundsGame.wav", Music.class);
-        //music.setLooping(true);
-        //music.play();
+        music.setLooping(true);
+        music.play();
 
 
     }
