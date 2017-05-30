@@ -25,6 +25,12 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 * Determina si el a sido destruido o no
 * Reproduce el sonido cuando el enemigo a sido destruido
 
+5. Player
+* Crea al Player
+* Determina si el a sido tocado o no
+* Tiene los metodos para caminar y saltar
+* Incrementa y decrementa vidas
+
 
 ### Diagrama de clases
 ![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
