@@ -5,12 +5,12 @@ Desarrollar la logica en el jugador para que pueda resolver las situaciones que 
 Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mundo que tiene ciertos obstaculos como enemigos que haran todo lo que puedan por detener a nuestro heroe a su vez tendra que buscar objetos que le ayudaran a completar su aventura.
 
 ### Clases principales y sus características
-1. Clase 1
-* caracteristica1
-* caracteristica2
-* caracteristica3
+1. MegaSoldier
+* Carga todas las imagenes
+* Inicializa todos las pantallas
+* Cambia la pantalla a menu para comenzar
 
-2. Clase 2
+2. PlayScreen
 * caracteristica1
 * caracteristica2
 * caracteristica3
@@ -31,10 +31,10 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 * caracteristica3
 
 ### Diagrama de clases
-![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/Diagrama.png)
+![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
 
 ### Autor(es)
-El autor(es) del proyecto son:
+Los autores del proyecto son:
 - Karla Stephania Rosas Del Valle (k2rosvall)
 - Jonathan Israel Baro del Leon (jonathan.baro21)
 
