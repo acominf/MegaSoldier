@@ -11,18 +11,18 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 * Cambia la pantalla a menu para comenzar
 
 2. PlayScreen
-* caracteristica1
-* caracteristica2
-* caracteristica3
+* Inicializa la camara
+* Inicializa el mapa
+* Crea al jugador
+* Inicializa el tablero donde se ven las vidas, los puntos y el tiempo
 
-3. Clase 3
-* caracteristica1
-* caracteristica2
-* caracteristica3
+3. WorldContactListener
+* Dectecta las colisiones en el juego
+* Activa las acciones cuando se dectecta una colison entre objetos
 
-4. Clase 4
-* caracteristica1
-* caracteristica2
+4. SoldadoMalo
+* Crea al enemigo 
+* Determina si el 
 * caracteristica3
 
 5. Clase 5
