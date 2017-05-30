@@ -50,7 +50,7 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 ### Autor(es)
 Los autores del proyecto son:
 - Karla Stephania Rosas Del Valle (k2rosvall)
-- Jonathan Israel Baro del Leon (jonathan.baro21)
+- Jonathan Israel Baro de Leon (jonathan.baro21)
 
 ### Materia(s)
 - Programación Orientada a Objetos
