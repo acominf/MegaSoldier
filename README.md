@@ -22,24 +22,20 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 
 4. SoldadoMalo
 * Crea al enemigo 
-* Determina si el 
-* caracteristica3
+* Determina si el a sido destruido o no
+* Reproduce el sonido cuando el enemigo a sido destruido
 
-5. Clase 5
-* caracteristica1
-* caracteristica2
-* caracteristica3
 
 ### Diagrama de clases
 ![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
 
-###Logo 
+### Logo 
 ![Logo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/logo.png)
 
-###Personaje
-![Personaje](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/Personaje.png)
+### Personaje
+![Personaje](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/player.png)
 
-###Enemigo
+### Enemigo
 ![Enemigo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/enemies.png)
 
 ### ScreenDelJuego
