@@ -11,26 +11,24 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 * Cambia la pantalla a menu para comenzar
 
 2. PlayScreen
-* Inicializa el mapa
-* Inicializa la camara que seguira al jugador
-* Crea las condiciones fisicas del mundo como la gravedad
-* Crea las condiciones de teclas para mover al personaje
-* Crea la tabla de score, vidas y tiempo
+* caracteristica1
+* caracteristica2
+* caracteristica3
 
-3. Player
-* Crea estados del personaje
-* Define que si el personaje sigue vivo o ha muerto
-* Cambia el sprite de acuerdo al estado
+3. Clase 3
+* caracteristica1
+* caracteristica2
+* caracteristica3
 
-4. SoldadoMalo
-* Crea la animacion del enemigo
-* Ejecuta la accion al eliminar al enemigo
+4. Clase 4
+* caracteristica1
+* caracteristica2
+* caracteristica3
 
-
-5. WorldContactListener
-* Contiene colisiones
-* Dectecta cuando un objeto a chocado con otro 
-* Ejecuta las acciones cuando se crea una colision de acuerdo al tipo de colision que es
+5. Clase 5
+* caracteristica1
+* caracteristica2
+* caracteristica3
 
 ### Diagrama de clases
 ![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
@@ -45,6 +43,9 @@ Los autores del proyecto son:
 
 ### Semestre
 - 2016-2017/II
+
+## Video Demostrativo
+![Video de Mega-Soldier](https://www.youtube.com/watch?v=mFur5aXU9mo)
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
