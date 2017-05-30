@@ -45,7 +45,7 @@ Los autores del proyecto son:
 - 2016-2017/II
 
 ## Video Demostrativo
-![Video de Mega-Soldier](https://www.youtube.com/watch?v=mFur5aXU9mo)
+(https://www.youtube.com/watch?v=mFur5aXU9mo)
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
