@@ -34,13 +34,21 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 ![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
 
 ###Logo 
-![Logo](MegaSoldier/Imagenes/logo.png)
+![Logo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/logo.png)
 
 ###Personaje
-![Personaje](MegaSoldier/Imagenes/player.png)
+![Personaje](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/Personaje.png)
 
 ###Enemigo
-![Enemigo](MegaSoldier/Imagenes/enemies.png)
+![Enemigo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/enemies.png)
+
+### ScreenDelJuego
+![MegaSoldier1](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier1.png)
+![MegaSoldier2](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier2.png)
+![MegaSoldier3](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier3.png)
+![MegaSoldier4](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier4.png)
+![MegaSoldier5](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier5.png)
+![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier6.png)
 
 
 ### Autor(es)
