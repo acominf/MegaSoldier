@@ -33,6 +33,16 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 ### Diagrama de clases
 ![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
 
+###Logo 
+![Logo](MegaSoldier/Imagenes/logo.png)
+
+###Personaje
+![Personaje](MegaSoldier/Imagenes/player.png)
+
+###Enemigo
+![Enemigo](MegaSoldier/Imagenes/enemies.png)
+
+
 ### Autor(es)
 Los autores del proyecto son:
 - Karla Stephania Rosas Del Valle (k2rosvall)
