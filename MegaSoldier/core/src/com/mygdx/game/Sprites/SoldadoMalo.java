@@ -25,6 +25,7 @@ public class SoldadoMalo extends Enemy {
     private Array<TextureRegion> frames;
     private boolean setToDestroy;
     private boolean destroyed;
+    public static boolean touch;
 
     public SoldadoMalo(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -36,6 +37,7 @@ public class SoldadoMalo extends Enemy {
         setBounds(getX(), getY(), 33 / MegaSoldier.PPM, 33 / MegaSoldier.PPM);
         setToDestroy = false;
         destroyed = false;
+        touch = false;
 
     }
 
@@ -104,5 +106,14 @@ public class SoldadoMalo extends Enemy {
         setToDestroy = true;
         Hud.addScore(500);
         MegaSoldier.manager.get("Audio/Music/enemyDied.wav", Music.class).play();
+    }
+
+    public static void setTouch(boolean touch)
+    {
+        SoldadoMalo.touch = touch;
+    }
+    public static boolean getTouch()
+    {
+        return touch;
     }
 }

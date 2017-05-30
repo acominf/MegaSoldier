@@ -8,10 +8,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
+import com.badlogic.gdx.physics.box2d.Filter;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.MegaSoldier;
+import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Screens.PlayScreen;
 
 /**
@@ -19,7 +22,10 @@ import com.mygdx.game.Screens.PlayScreen;
  */
 
 public class Player extends Sprite {
-    public enum State{ FALLING, JUMPING, STANNDING, RUNNING};
+
+
+    public enum State{ FALLING, JUMPING, STANNDING, RUNNING, DEAD}
+
     public State currentState;
     public State previousState;
     public World world;
@@ -27,8 +33,13 @@ public class Player extends Sprite {
     private TextureRegion playerStand;
     private Animation playerRun;
     private Animation playerJump;
+    private TextureRegion playerDead;
     private float stateTimer;
     private boolean runnningRight;
+    private boolean playerIsDead;
+    private PlayScreen screen;
+    private static int vidas;
+    private static int level;
 
     public Player(PlayScreen screen)
     {
@@ -51,9 +62,13 @@ public class Player extends Sprite {
 
 
         playerStand = new TextureRegion(getTexture(), 580, 0, 192, 164);
+
+        playerDead = new TextureRegion(getTexture(), 580, 0, 192, 164);
         definePlayer();
         setBounds(0, 0, 33 / MegaSoldier.PPM, 33 / MegaSoldier.PPM);
         setRegion(playerStand);
+        vidas = 5;
+        level = 0;
     }
 
     public void update(float dt)
@@ -68,6 +83,9 @@ public class Player extends Sprite {
 
         TextureRegion region;
         switch (currentState){
+            case DEAD:
+                region = playerDead;
+                break;
             case JUMPING:
                 region = (TextureRegion) playerJump.getKeyFrame(stateTimer);
                 break;
@@ -99,7 +117,9 @@ public class Player extends Sprite {
 
     public State getState()
     {
-        if(b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
+        if(playerIsDead)
+            return State.DEAD;
+        else if(b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
             return State.JUMPING;
         else if(b2body.getLinearVelocity().y < 0)
             return State.FALLING;
@@ -137,6 +157,61 @@ public class Player extends Sprite {
 
         b2body.createFixture(fdef).setUserData("head");
 
+    }
+
+    public void hit()
+    {
+        die();
+    }
+
+    public void die() {
+
+        if (!isDead()) {
+            playerIsDead = true;
+            Filter filter = new Filter();
+            filter.maskBits = MegaSoldier.NOTHING_BIT;
+
+
+            for (Fixture fixture : b2body.getFixtureList()) {
+                fixture.setFilterData(filter);
+            }
+
+            b2body.applyLinearImpulse(new Vector2(0, 4f), b2body.getWorldCenter(), true);
+        }
+    }
+
+    public static void disminuyeVida()
+    {
+        Hud.subVidas(vidas--);
+    }
+
+    public static void aumentaVida()
+    {
+        Hud.addVidas(vidas+=1);
+    }
+
+    public static void addLevel()
+    {
+        level = 1;
+    }
+
+    public boolean isDead()
+    {
+        return playerIsDead;
+    }
+
+    public float getStateTimer()
+    {
+        return stateTimer;
+    }
+
+    public int getVidas()
+    {
+        return vidas;
+    }
+    public int getLevel()
+    {
+        return level;
     }
 
 }

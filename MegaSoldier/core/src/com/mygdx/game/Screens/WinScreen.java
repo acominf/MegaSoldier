@@ -1,7 +1,6 @@
 package com.mygdx.game.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,56 +12,42 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.MegaSoldier;
 
-import static com.badlogic.gdx.scenes.scene2d.ui.Table.Debug.actor;
-
 /**
- * Created by Karla Rosas on 28/05/2017.
+ * Created by Jonathan on 29/05/2017.
  */
 
-public class GameOverScreen extends BaseScreen{
+public class WinScreen extends BaseScreen {
 
-    private TextButton retry;
-    private TextButton menu;
+    private TextButton back;
     private Stage stage;
     private Image logo;
     private Skin skin;
 
-    public GameOverScreen(final MegaSoldier game) {
+
+    public WinScreen(final MegaSoldier game)
+    {
         super(game);
         stage = new Stage(new FitViewport(640, 360));
         skin = new Skin(Gdx.files.internal(("skin/star-soldier-ui.json")));
-        logo = new Image(game.getManager().get("gameover.png",Texture.class));
-        retry = new TextButton("Retry", skin);
-        menu = new TextButton("Menu", skin);
+        logo = new Image(game.getManager().get("win.png", Texture.class));
+        back = new TextButton("Menu", skin);
 
-
-        retry.addCaptureListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                game.setScreen(new PlayScreen(game));
-
-            }
-        });
-        menu.addCaptureListener(new ChangeListener() {
+        back.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 game.setScreen(game.menuScreen);
             }
         });
-        logo.scaleBy(-.4f);
-        logo.setPosition(420 - logo.getWidth()/2, 310 - logo.getHeight()/2);
-        retry.setSize(200, 100);
-        retry.setPosition(100, 50);
-        menu.setSize(200, 100);
-        menu.setPosition(400, 50);
-        stage.addActor(logo);
-        stage.addActor(retry);
-        stage.addActor(menu);
-    }
 
+        logo.setPosition(320 - logo.getWidth()/2, 280 - logo.getHeight()/2);
+        back.setSize(200, 100);
+        back.setPosition(220, 50);
+        stage.addActor(logo);
+        stage.addActor(back);
+
+    }
     @Override
     public void show() {
-
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -84,8 +69,8 @@ public class GameOverScreen extends BaseScreen{
         stage.act();
         stage.draw();
     }
-
-
-
-
 }
+
+
+
+

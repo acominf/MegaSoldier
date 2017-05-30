@@ -36,7 +36,7 @@ public class HelpScreen extends BaseScreen {
         back.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(game.playScreen);
+                game.setScreen(new PlayScreen(game));
             }
         });
         logo.scaleBy(-.4f);

@@ -10,6 +10,8 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Sprites.Enemy;
 import com.mygdx.game.Sprites.InteractiveTiledObject;
+import com.mygdx.game.Sprites.Player;
+import com.mygdx.game.Sprites.SoldadoMalo;
 
 /**
  * Created by Jonathan on 23/05/2017.
@@ -55,7 +57,16 @@ public class WorldContactListener implements ContactListener {
                     ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
                 break;
             case MegaSoldier.PLAYER_BIT | MegaSoldier.ENEMY_BIT:
-                Gdx.app.log("Player", "Died");
+                Gdx.app.log("Player", "Dead");
+                Player.disminuyeVida();
+                break;
+            case MegaSoldier.PLAYER_BIT | MegaSoldier.OBJETO_BIT:
+                Gdx.app.log("Player", "Live");
+                Player.aumentaVida();
+                break;
+            case MegaSoldier.PLAYER_BIT | MegaSoldier.OBJECT_BIT:
+                Gdx.app.log("Player", "Termino");
+                Player.addLevel();
                 break;
             case MegaSoldier.ENEMY_BIT | MegaSoldier.ENEMY_BIT:
                 ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
