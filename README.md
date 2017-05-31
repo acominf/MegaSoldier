@@ -37,20 +37,32 @@ Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mund
 
 ### Logo 
 ![Logo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/logo.png)
+Imagen principal del videojuego
 
 ### Personaje
 ![Personaje](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/player.png)
+Sprites del personaje, para simular que el personaje camina, las imagenes se diseñaron en el programa de Piskel.
 
 ### Enemigo
 ![Enemigo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/enemies.png)
+Sprites de los enemigos, para simula cuando los enemigos caminan
 
 ### ScreenDelJuego
 ![MegaSoldier1](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier1.png)
+Menu principal del juego, muestra el logo y los botones de creditos y jugar, que te mandan a las siguientes pantallas. 
+![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier6.png)
+Pantalla de creditos donde se muestran el nombre de los desarroladores
 ![MegaSoldier2](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier2.png)
+Al presionar play se manda la pantalla de ayuda donde te muestra los controles del juego, tambien tiene un boton de siguiente.
 ![MegaSoldier3](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier3.png)
 ![MegaSoldier4](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier4.png)
 ![MegaSoldier5](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier5.png)
-![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier6.png)
+Cuando se presiona siguiente en la pantalla de ayuda se inicia el juego, donde se tiene que ir avanzado y se encuentran enemigos y objetos con los cuales se puede interactuar, el mapa se creo en el programa Tiled.
+![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier7.png)
+Pantalla de Game over que se muestra si el jugador pierde todas sus vidas, tiene los botones de retry para comenzar de nuevo y el boton menu, para regresar al menu
+![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier8.png)
+Pantalla que se muestra al completar el juego, este pantalla solo cuenta con un boton para regresar al menu principal.
+
 
 
 ### Autor(es)
@@ -65,7 +77,7 @@ Los autores del proyecto son:
 - 2016-2017/II
 
 ## Video Demostrativo
-(https://www.youtube.com/watch?v=mFur5aXU9mo)
+[!Video](https://www.youtube.com/watch?v=mFur5aXU9mo)
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
