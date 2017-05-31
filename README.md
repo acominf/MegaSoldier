@@ -4,6 +4,10 @@ Desarrollar la logica en el jugador para que pueda resolver las situaciones que 
 ### Descripción del juego/aplicación
 Juego de plataforma clasico donde el jugador tendra que abrirse paso por un mundo que tiene ciertos obstaculos como enemigos que haran todo lo que puedan por detener a nuestro heroe a su vez tendra que buscar objetos que le ayudaran a completar su aventura.
 
+Se cuenta con 5 vidas, el mapa cuenta con objetos que sumaran puntos y daran vidas si se golpean.
+Tambien estan los enemigos repartidos por el mapa, si los tocas la vida disminuira.
+Ganas al llegar al otro lado del mapa y tocar la tuberia.
+
 ### Clases principales y sus características
 1. MegaSoldier
 * Carga todas las imagenes
@@ -46,6 +50,19 @@ Sprites del personaje, para simular que el personaje camina, las imagenes se dis
 ### Enemigo
 ![Enemigo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/enemies.png)
 Sprites de los enemigos, para simula cuando los enemigos caminan
+
+### Tuberia
+![Tuberia](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/tuberia.png)
+Puerta que se debe alcanzar para poder ganar el juego
+
+### Objeto
+![Objeto](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/objeto.png)
+Al golpear este objeto se obtienen vidas extras asi como puntos.
+
+### Brick
+![Brick](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/brick.png)
+Muro que se puede destruir si se golpea con la cabeza.
+
 
 ### ScreenDelJuego
 ![MegaSoldier1](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier1.png)
