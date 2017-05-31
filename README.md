@@ -37,58 +37,58 @@ Ganas al llegar al otro lado del mapa y tocar la tuberia.
 
 
 ### Diagrama de clases
-![Diagrama de clases](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier.png)
+![Diagrama de clases](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier.png)
 
 ### Logo 
-![Logo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/logo.png)
+![Logo](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/logo.png)
 
 Imagen principal del videojuego
 
 ### Personaje
-![Personaje](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/player.png)
+![Personaje](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/player.png)
 
 Sprites del personaje, para simular que el personaje camina, las imagenes se diseñaron en el programa de Piskel.
 
 ### Enemigo
-![Enemigo](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/enemies.png)
+![Enemigo](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/enemies.png)
 
 Sprites de los enemigos, para simula cuando los enemigos caminan
 
 ### Tuberia
-![Tuberia](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/tuberia.png)
+![Tuberia](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/tuberia.png)
 
 Puerta que se debe alcanzar para poder ganar el juego
 
 ### Objeto
-![Objeto](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/objeto.png)
+![Objeto](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/objeto.png)
 
 Al golpear este objeto se obtienen vidas extras asi como puntos.
 
 ### Brick
-![Brick](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/brick.png)
+![Brick](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/brick.png)
 
 Muro que se puede destruir si se golpea con la cabeza.
 
 
 ### ScreenDelJuego
-![MegaSoldier1](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier1.png)
+![MegaSoldier1](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier1.png)
 
 Menu principal del juego, muestra el logo y los botones de creditos y jugar, que te mandan a las siguientes pantallas. 
-![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier6.png)
+![MegaSoldier6](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier6.png)
 
 Pantalla de creditos donde se muestran el nombre de los desarroladores
-![MegaSoldier2](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier2.png)
+![MegaSoldier2](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier2.png)
 
 Al presionar play se manda la pantalla de ayuda donde te muestra los controles del juego, tambien tiene un boton de siguiente.
-![MegaSoldier3](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier3.png)
-![MegaSoldier4](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier4.png)
-![MegaSoldier5](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier5.png)
+![MegaSoldier3](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier3.png)
+![MegaSoldier4](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier4.png)
+![MegaSoldier5](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier5.png)
 
 Cuando se presiona siguiente en la pantalla de ayuda se inicia el juego, donde se tiene que ir avanzado y se encuentran enemigos y objetos con los cuales se puede interactuar, el mapa se creo en el programa Tiled.
-![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier7.png)
+![MegaSoldier6](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier7.png)
 
 Pantalla de Game over que se muestra si el jugador pierde todas sus vidas, tiene los botones de retry para comenzar de nuevo y el boton menu, para regresar al menu
-![MegaSoldier6](https://github.com/acominf/MegaSoldier/blob/master/Imagenes/MegaSoldier8.png)
+![MegaSoldier6](https://raw.githubusercontent.com/acominf/MegaSoldier/master/Imagenes/MegaSoldier8.png)
 
 Pantalla que se muestra al completar el juego, este pantalla solo cuenta con un boton para regresar al menu principal.
 
@@ -106,7 +106,7 @@ Los autores del proyecto son:
 - 2016-2017/II
 
 ## Video Demostrativo
-[!Video](https://www.youtube.com/watch?v=mFur5aXU9mo)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mFur5aXU9mo" frameborder="0" allowfullscreen></iframe>
 
 ### Markdown
 El contenido de esta página está escrito en un lenguaje de marcado sencillo llamado *Markdown*. Para más detalles consulta la página de [Markdown para GitHub](https://guides.github.com/features/mastering-markdown/).
