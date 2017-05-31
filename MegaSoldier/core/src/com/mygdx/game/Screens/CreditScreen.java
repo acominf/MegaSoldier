@@ -60,6 +60,7 @@ public class CreditScreen extends BaseScreen {
     }
     @Override
     public void dispose() {
+
         stage.dispose();
     }
 
