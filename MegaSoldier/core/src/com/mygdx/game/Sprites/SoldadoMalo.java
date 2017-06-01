@@ -1,7 +1,6 @@
 package com.mygdx.game.Sprites;
 
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -45,14 +44,14 @@ public class SoldadoMalo extends Enemy {
     {
         stateTime += dt;
         if(setToDestroy && !destroyed){
-            world.destroyBody(b2body);
+            world.destroyBody(getB2body());
             destroyed = true;
             setRegion(new TextureRegion(screen.getAtlas().findRegion("enemies")), 768, 0, 192, 164 );
             stateTime = 0;
         }
         else if(!destroyed) {
-            b2body.setLinearVelocity(velocity);
-            setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
+            getB2body().setLinearVelocity(getVelocity());
+            setPosition(getB2body().getPosition().x - getWidth() / 2, getB2body().getPosition().y - getHeight() / 2);
             setRegion((TextureRegion) walkAnimation.getKeyFrame(stateTime, true));
         }
     }
@@ -63,7 +62,7 @@ public class SoldadoMalo extends Enemy {
         BodyDef bdef = new BodyDef();
         bdef.position.set(getX(),getY());
         bdef.type = BodyDef.BodyType.DynamicBody;
-        b2body = world.createBody(bdef);
+        setB2body(world.createBody(bdef));
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
@@ -77,7 +76,7 @@ public class SoldadoMalo extends Enemy {
                                MegaSoldier.PLAYER_BIT;
 
         fdef.shape = shape;
-        b2body.createFixture(fdef).setUserData(this);
+        getB2body().createFixture(fdef).setUserData(this);
 
         //  Create the Head here:
         PolygonShape head = new PolygonShape();
@@ -91,7 +90,7 @@ public class SoldadoMalo extends Enemy {
         fdef.shape = head;
         fdef.restitution = 1.5f;
         fdef.filter.categoryBits = MegaSoldier.ENEMY_HEAD_BIT;
-        b2body.createFixture(fdef).setUserData(this);
+        getB2body().createFixture(fdef).setUserData(this);
     }
 
     public void draw(Batch batch)

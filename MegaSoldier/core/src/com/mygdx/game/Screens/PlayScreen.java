@@ -8,29 +8,18 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MegaSoldier;
 import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Sprites.Enemy;
 import com.mygdx.game.Sprites.Player;
-import com.mygdx.game.Sprites.SoldadoMalo;
 import com.mygdx.game.Tools.B2WorldCreator;
 import com.mygdx.game.Tools.WorldContactListener;
 
@@ -104,15 +93,15 @@ public class PlayScreen implements Screen{
 
     public void handleInput(float dt)
     {
-        if (player.currentState != Player.State.DEAD) {
+        if (player.getCurrentState() != Player.State.DEAD) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
-                player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+                player.getB2body().applyLinearImpulse(new Vector2(0, 3f), player.getB2body().getWorldCenter(), true);
             if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
-                player.b2body.applyLinearImpulse(new Vector2(0, -3f), player.b2body.getWorldCenter(), true);
-            if (Gdx.input.isKeyPressed((Input.Keys.RIGHT)) && player.b2body.getLinearVelocity().x <= 2)
-                player.b2body.applyLinearImpulse(new Vector2(0.2f, 0), player.b2body.getWorldCenter(), true);
-            if (Gdx.input.isKeyPressed((Input.Keys.LEFT)) && player.b2body.getLinearVelocity().x >= -2)
-                player.b2body.applyLinearImpulse(new Vector2(-0.2f, 0), player.b2body.getWorldCenter(), true);
+                player.getB2body().applyLinearImpulse(new Vector2(0, -3f), player.getB2body().getWorldCenter(), true);
+            if (Gdx.input.isKeyPressed((Input.Keys.RIGHT)) && player.getB2body().getLinearVelocity().x <= 2)
+                player.getB2body().applyLinearImpulse(new Vector2(0.2f, 0), player.getB2body().getWorldCenter(), true);
+            if (Gdx.input.isKeyPressed((Input.Keys.LEFT)) && player.getB2body().getLinearVelocity().x >= -2)
+                player.getB2body().applyLinearImpulse(new Vector2(-0.2f, 0), player.getB2body().getWorldCenter(), true);
         }
     }
     //Actualizar si alguna tecla esta siendo presionada
@@ -125,10 +114,10 @@ public class PlayScreen implements Screen{
             enemy.update(dt);
         hud.update(dt);
 
-        if (player.currentState != Player.State.DEAD)
+        if (player.getCurrentState() != Player.State.DEAD)
         {
-            gamecam.position.x = (player.b2body.getPosition().x) + 1;
-            gamecam.position.y = (player.b2body.getPosition().y) + 0.7f;
+            gamecam.position.x = (player.getB2body().getPosition().x) + 1;
+            gamecam.position.y = (player.getB2body().getPosition().y) + 0.7f;
         }
 
         gamecam.update();
@@ -175,7 +164,7 @@ public class PlayScreen implements Screen{
     }
 
     public boolean gameOver(){
-        if(player.currentState == Player.State.DEAD && player.getStateTimer() > 3)
+        if(player.getCurrentState() == Player.State.DEAD && player.getStateTimer() > 3)
         {
             return true;
         }

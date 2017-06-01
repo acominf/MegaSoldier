@@ -13,8 +13,8 @@ import com.mygdx.game.Screens.PlayScreen;
 public abstract class Enemy extends Sprite{
     protected World world;
     protected PlayScreen screen;
-    public Body b2body;
-    public Vector2 velocity;
+    private Body b2body;
+    private Vector2 velocity;
 
 
     public Enemy(PlayScreen screen, float x, float y)
@@ -23,7 +23,7 @@ public abstract class Enemy extends Sprite{
         this.screen = screen;
         setPosition(x, y);
         defineEnemy();
-        velocity = new Vector2(1,0);
+        setVelocity(new Vector2(1,0));
     }
 
     protected abstract void defineEnemy();
@@ -33,9 +33,25 @@ public abstract class Enemy extends Sprite{
     public void reverseVelocity(boolean x, boolean y)
     {
         if(x)
-            velocity.x = -velocity.x;
+            getVelocity().x = -getVelocity().x;
         if(y)
-            velocity.y = -velocity.y;
+            getVelocity().y = -getVelocity().y;
 
+    }
+
+    public Body getB2body() {
+        return b2body;
+    }
+
+    public void setB2body(Body b2body) {
+        this.b2body = b2body;
+    }
+
+    public Vector2 getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(Vector2 velocity) {
+        this.velocity = velocity;
     }
 }

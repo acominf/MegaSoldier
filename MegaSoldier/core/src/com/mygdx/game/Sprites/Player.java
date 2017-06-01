@@ -24,12 +24,44 @@ import com.mygdx.game.Screens.PlayScreen;
 public class Player extends Sprite {
 
 
+    public State getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(State currentState) {
+        this.currentState = currentState;
+    }
+
+    public State getPreviousState() {
+        return previousState;
+    }
+
+    public void setPreviousState(State previousState) {
+        this.previousState = previousState;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
+
+    public Body getB2body() {
+        return b2body;
+    }
+
+    public void setB2body(Body b2body) {
+        this.b2body = b2body;
+    }
+
     public enum State{ FALLING, JUMPING, STANNDING, RUNNING, DEAD}
 
-    public State currentState;
-    public State previousState;
-    public World world;
-    public Body b2body;
+    private State currentState;
+    private State previousState;
+    private World world;
+    private Body b2body;
     private TextureRegion playerStand;
     private Animation playerRun;
     private Animation playerJump;
@@ -44,9 +76,9 @@ public class Player extends Sprite {
     public Player(PlayScreen screen)
     {
         super(screen.getAtlas().findRegion("player"));
-        this.world = screen.getWorld();
-        currentState = State.STANNDING;
-        previousState = State.STANNDING;
+        this.setWorld(screen.getWorld());
+        setCurrentState(State.STANNDING);
+        setPreviousState(State.STANNDING);
         stateTimer = 0;
         runnningRight = true;
 
@@ -73,16 +105,16 @@ public class Player extends Sprite {
 
     public void update(float dt)
     {
-        setPosition(b2body.getPosition().x - getWidth() / 2, b2body.getPosition().y - getHeight() / 2);
+        setPosition(getB2body().getPosition().x - getWidth() / 2, getB2body().getPosition().y - getHeight() / 2);
         setRegion(getFrame(dt));
     }
 
     public TextureRegion getFrame(float dt)
     {
-        currentState = getState();
+        setCurrentState(getState());
 
         TextureRegion region;
-        switch (currentState){
+        switch (getCurrentState()){
             case DEAD:
                 region = playerDead;
                 break;
@@ -99,19 +131,19 @@ public class Player extends Sprite {
                 break;
         }
 
-        if((b2body.getLinearVelocity().x < 0 || !runnningRight) && !region.isFlipX())
+        if((getB2body().getLinearVelocity().x < 0 || !runnningRight) && !region.isFlipX())
         {
             region.flip(true, false);
             runnningRight = false;
         }
-        else if((b2body.getLinearVelocity().x > 0 || runnningRight) && region.isFlipX())
+        else if((getB2body().getLinearVelocity().x > 0 || runnningRight) && region.isFlipX())
         {
             region.flip(true, false);
             runnningRight = true;
         }
 
-        stateTimer = currentState == previousState ? stateTimer + dt : 0;
-        previousState = currentState;
+        stateTimer = getCurrentState() == getPreviousState() ? stateTimer + dt : 0;
+        setPreviousState(getCurrentState());
         return region;
     }
 
@@ -119,11 +151,11 @@ public class Player extends Sprite {
     {
         if(playerIsDead)
             return State.DEAD;
-        else if(b2body.getLinearVelocity().y > 0 || (b2body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
+        else if(getB2body().getLinearVelocity().y > 0 || (getB2body().getLinearVelocity().y < 0 && getPreviousState() == State.JUMPING))
             return State.JUMPING;
-        else if(b2body.getLinearVelocity().y < 0)
+        else if(getB2body().getLinearVelocity().y < 0)
             return State.FALLING;
-        else if(b2body.getLinearVelocity().x != 0)
+        else if(getB2body().getLinearVelocity().x != 0)
             return State.RUNNING;
         else
             return State.STANNDING;
@@ -134,7 +166,7 @@ public class Player extends Sprite {
         BodyDef bdef = new BodyDef();
         bdef.position.set(35 / MegaSoldier.PPM,40 /MegaSoldier.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
-        b2body = world.createBody(bdef);
+        setB2body(getWorld().createBody(bdef));
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
@@ -148,14 +180,14 @@ public class Player extends Sprite {
                                MegaSoldier.ENEMY_HEAD_BIT;
 
         fdef.shape = shape;
-        b2body.createFixture((fdef));
+        getB2body().createFixture((fdef));
 
         EdgeShape head = new EdgeShape();
         head.set(new Vector2(-2 / MegaSoldier.PPM, 16 / MegaSoldier.PPM), new Vector2(2 / MegaSoldier.PPM, 16 / MegaSoldier.PPM));
         fdef.shape = head;
         fdef.isSensor = true;
 
-        b2body.createFixture(fdef).setUserData("head");
+        getB2body().createFixture(fdef).setUserData("head");
 
     }
 
@@ -172,11 +204,11 @@ public class Player extends Sprite {
             filter.maskBits = MegaSoldier.NOTHING_BIT;
 
 
-            for (Fixture fixture : b2body.getFixtureList()) {
+            for (Fixture fixture : getB2body().getFixtureList()) {
                 fixture.setFilterData(filter);
             }
 
-            b2body.applyLinearImpulse(new Vector2(0, 4f), b2body.getWorldCenter(), true);
+            getB2body().applyLinearImpulse(new Vector2(0, 4f), getB2body().getWorldCenter(), true);
         }
     }
 
